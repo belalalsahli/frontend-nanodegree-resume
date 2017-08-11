@@ -35,9 +35,7 @@ $("#topContacts").append(formattedTwitter);
 $("#topContacts").append(formattedLocation);
 $("#header").append(formattedbioPic);
 $("#header").append(formattedMessage);
-
 $("#header").append(HTMLskillsStart);
-
 bio.skills.forEach(function(skill){
   var formattedSkill = HTMLskills.replace("%data%", skill);
   $("#skills").append(formattedSkill);
@@ -45,30 +43,78 @@ bio.skills.forEach(function(skill){
 
 // Bio section end
 
-//// education section start
-//var education = {
-//    "schools": {
-//        "name": "Taibah university",
-//        "location": "Medianh, Saudi Arabia",
-//        "degree": "Bachelor degree",
-//        "majors": ["Computer science"],
-//        "dates": "2011 - 2016",
-//        "url": "https://www.taibahu.edu.sa"
-//    },
-//    "onlineCourses": [
-//    {
-//        "title": "Title of the course",
-//        "school": "School"
-//        "dates": "2017"
-//        "url": "url!"
-//    }
-//]
-//
-////      display: function
-//}
-//
-//
-//
-//
-//
-//// education section end
+// work section start
+
+//var work = {
+//    "jobs": [
+//    employer: "Alber in Yutamah",
+//    title: "IT administrator",
+//    location: "Medinah, Saudi Arabia",
+//    dates: "2009 - 2016",
+//    description: "description"
+//    ]
+//};
+
+
+// work section end
+
+// education section start
+var education = {
+    "schools": [{
+        "name": "Taibah university",
+        "location": "Medianh, Saudi Arabia",
+        "degree": "Bachelor degree",
+        "major": ["Computer science"],
+        "dates": "2011 - 2016 ",
+        "url": "https://www.taibahu.edu.sa"
+    }],
+    "onlineCourses": [{
+        "title": "Front-end Web Development",
+        "school": "Udacity.com",
+        "dates": "2017",
+        "url": "https://www.udacity.com"
+    }]
+};
+education.display = function() {
+    for (var i = 0; i < education.schools.length; i++) {
+        $("#education").append(HTMLschoolStart);
+        var url = education.schools[0].url;
+        var name = education.schools[0].name;
+        var formattedSchoolName = HTMLschoolName.replace("%data%", name).replace("#", url);
+        var degree = education.schools[0].degree;
+        var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", degree);
+        var dates = education.schools[0].dates;
+        var formattedSchoolDates = HTMLschoolDates.replace("%data%", dates);
+        var location = education.schools[0].location;
+        var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", location);
+        var major = education.schools[0].major;
+        var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", major);
+        $(".education-entry:last").append(formattedSchoolName);
+        $(".education-entry:last").append(formattedSchoolDegree);
+        $(".education-entry:last").append(formattedSchoolDates);
+        $(".education-entry:last").append(formattedSchoolLocation);
+        $(".education-entry:last").append(formattedSchoolMajor);   
+    }
+    $("#education").append(HTMLonlineClasses);
+    for (var i = 0; i < education.onlineCourses.length; i++) {
+        var url = education.onlineCourses[0].url;
+        var title = education.onlineCourses[0].title;
+        var formattedOnlineClassesTitle = HTMLonlineTitle.replace("%data%", title).replace("#", url);
+        var school = education.onlineCourses[0].school;
+        var formattedOnlineClassesSchool = HTMLonlineSchool.replace("%data%", school);
+        var dates = education.onlineCourses[0].dates;
+        var formattedOnlineClassesDates = HTMLonlineDates.replace("%data%", dates);
+        $("#education").append(HTMLschoolStart);
+        $(".education-entry:last").append(formattedOnlineClassesTitle);
+        $(".education-entry:last").append(formattedOnlineClassesSchool);
+        $(".education-entry:last").append(formattedOnlineClassesDates);
+        }
+};
+education.display();
+
+// education section end
+
+
+
+
+	
