@@ -17,3 +17,27 @@ var bio = {
     biopic: "",
     display: ""
 };
+
+
+var education = {
+    "schools": {
+        "name": "Taibah university",
+        "location": "Medianh, Saudi Arabia",
+        "degree": "Bachelor degree",
+        "majors": [
+        "Computer science"
+        ],
+        "dates": "2011 - 2016",
+        "url": "https://www.taibahu.edu.sa"
+    },
+    "onlineCourses": [
+    {
+        "title": "Title of the course",
+        "school": "School"
+        "dates": "2017"
+        "url": "url!"
+    }
+    ]
+
+//      display: function
+}
