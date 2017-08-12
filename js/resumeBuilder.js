@@ -45,16 +45,49 @@ bio.skills.forEach(function(skill){
 
 // work section start
 
-//var work = {
-//    "jobs": [
-//    employer: "Alber in Yutamah",
-//    title: "IT administrator",
-//    location: "Medinah, Saudi Arabia",
-//    dates: "2009 - 2016",
-//    description: "description"
-//    ]
-//};
+var work = {
+    "jobs": [{
+    "employer": "Tamkeen technologies",
+    "title": "System analyst assistant",
+    "location": "Riyadh, Saudi Arabia",
+    "dates": "2016 - 2017",
+    "description": "I work as a System analyst assistant",
+    "url": "https://www.tamkeentech.sa"
+    },
+             {
+    "employer": "Alber in Yutamah",
+    "title": "IT administrator",
+    "location": "Medinah, Saudi Arabia",
+    "dates": "2009 - 2016",
+    "description": "I worked as IT administrator",
+    "url": "https://www.alberinyut.com"
+    }
+            
+    ]
+};
 
+work.display = function() {
+    for (var i = 0; i < work.jobs.length; i++) {
+        $("#workExperience").append(HTMLworkStart);
+        var url = work.jobs[i].url;
+        var workEmployer = work.jobs[i].employer;
+        var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", workEmployer).replace("#", url);
+        var workTitle = work.jobs[i].title;
+        var formattedWorkTitle = HTMLworkTitle.replace("%data%", workTitle);
+        var workDates = work.jobs[i].dates;
+        var formattedWorkDates = HTMLworkDates.replace("%data%", workDates);
+        var workLocation = work.jobs[i].location;
+        var formattedWorkLocation = HTMLschoolLocation.replace("%data%", workLocation);
+        var description = work.jobs[i].description;
+        var formattedWorkDescription = HTMLworkDescription.replace("%data%", description);
+        $(".work-entry:last").append(formattedWorkEmployer);
+        $(".work-entry:last").append(formattedWorkTitle);
+        $(".work-entry:last").append(formattedWorkDates);
+        $(".work-entry:last").append(formattedWorkLocation);
+        $(".work-entry:last").append(formattedWorkDescription);   
+    }
+};
+work.display();
 
 // work section end
 
@@ -73,21 +106,27 @@ var education = {
         "school": "Udacity.com",
         "dates": "2017",
         "url": "https://www.udacity.com"
+    },
+      {
+        "title": "Integrated Business Processes with SAP ERP (TERP10)",
+        "school": "University Duisburg Essen",
+        "dates": "2016",
+        "url": "https://www.uni-due.de"
     }]
 };
 education.display = function() {
     for (var i = 0; i < education.schools.length; i++) {
         $("#education").append(HTMLschoolStart);
-        var url = education.schools[0].url;
-        var name = education.schools[0].name;
+        var url = education.schools[i].url;
+        var name = education.schools[i].name;
         var formattedSchoolName = HTMLschoolName.replace("%data%", name).replace("#", url);
-        var degree = education.schools[0].degree;
+        var degree = education.schools[i].degree;
         var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", degree);
-        var dates = education.schools[0].dates;
+        var dates = education.schools[i].dates;
         var formattedSchoolDates = HTMLschoolDates.replace("%data%", dates);
-        var location = education.schools[0].location;
+        var location = education.schools[i].location;
         var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", location);
-        var major = education.schools[0].major;
+        var major = education.schools[i].major;
         var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", major);
         $(".education-entry:last").append(formattedSchoolName);
         $(".education-entry:last").append(formattedSchoolDegree);
@@ -97,12 +136,12 @@ education.display = function() {
     }
     $("#education").append(HTMLonlineClasses);
     for (var i = 0; i < education.onlineCourses.length; i++) {
-        var url = education.onlineCourses[0].url;
-        var title = education.onlineCourses[0].title;
+        var url = education.onlineCourses[i].url;
+        var title = education.onlineCourses[i].title;
         var formattedOnlineClassesTitle = HTMLonlineTitle.replace("%data%", title).replace("#", url);
-        var school = education.onlineCourses[0].school;
+        var school = education.onlineCourses[i].school;
         var formattedOnlineClassesSchool = HTMLonlineSchool.replace("%data%", school);
-        var dates = education.onlineCourses[0].dates;
+        var dates = education.onlineCourses[i].dates;
         var formattedOnlineClassesDates = HTMLonlineDates.replace("%data%", dates);
         $("#education").append(HTMLschoolStart);
         $(".education-entry:last").append(formattedOnlineClassesTitle);
