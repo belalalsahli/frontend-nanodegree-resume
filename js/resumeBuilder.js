@@ -16,7 +16,6 @@ var bio = {
     biopic: "..//images/fry.jpg",
     display: ""
 };
-
 var formattedName = HTMLheaderName.replace("%data%", bio["name"]);
 var formattedRole = HTMLheaderRole.replace("%data%", bio["role"]);
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts["mobile"]);
@@ -40,11 +39,10 @@ bio.skills.forEach(function(skill){
   var formattedSkill = HTMLskills.replace("%data%", skill);
   $("#skills").append(formattedSkill);
 });
-
 // Bio section end
 
-// work section start
 
+// work section start
 var work = {
     "jobs": [{
     "employer": "Tamkeen technologies",
@@ -65,7 +63,6 @@ var work = {
             
     ]
 };
-
 work.display = function() {
     for (var i = 0; i < work.jobs.length; i++) {
         $("#workExperience").append(HTMLworkStart);
@@ -88,8 +85,8 @@ work.display = function() {
     }
 };
 work.display();
-
 // work section end
+
 
 // education section start
 var education = {
@@ -150,10 +147,44 @@ education.display = function() {
         }
 };
 education.display();
-
 // education section end
 
 
-
+// Project section start
+var project = {
+    "projects": [{
+    "title": "Taibah university events",
+    "dates": "2015 - 2016",
+    "description": "A web application, iOS, and Android application to promote and publish Taibah university events.",
+    "url": "https://www.tuevents.com",
+    "propic": "..//images/fry.jpg",
+    },{
+    "title": "iGrades - iPhone Application",
+    "dates": "2015 - 2016",
+    "description": "iGrades is an app to save and organize your college grades.",
+    "url": "https://t.co/M7op4QkmTu",
+    "propic": "..//images/igrades.png",
+    }]
+};
+project.display = function() {
+    for (var i = 0; i < project.projects.length; i++) {
+        $("#projects").append(HTMLprojectStart);
+        var url = project.projects[i].url;
+        var projectTitle = project.projects[i].title;
+        var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projectTitle).replace("#", url);
+        var projectDates = project.projects[i].dates;
+        var formattedProjectDates = HTMLprojectDates.replace("%data%", projectDates);
+        var description = project.projects[i].description;
+        var formattedProjectDescription = HTMLprojectDescription.replace("%data%", description);
+        var proPic = project.projects[i].propic;
+        var formattedProjectImage = HTMLprojectImage.replace("%data%", proPic);      
+        $(".project-entry:last").append(formattedProjectTitle);
+        $(".project-entry:last").append(formattedProjectDates);
+        $(".project-entry:last").append(formattedProjectDescription);   
+        $(".project-entry:last").append(formattedProjectImage);   
+    }
+};
+project.display();
+// Project section end
 
 	
