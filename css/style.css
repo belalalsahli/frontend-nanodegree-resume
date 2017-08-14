@@ -29,14 +29,18 @@ h1 {
   color: #f5a623;
   line-height: 48px;
   display: inline;
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
 
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #303F9C;
   line-height: 29px;
   padding: 10px;
+    text-transform: uppercase;
+
 }
 
 h3 {

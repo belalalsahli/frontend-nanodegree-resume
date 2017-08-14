@@ -187,4 +187,8 @@ project.display = function() {
 project.display();
 // Project section end
 
+
+
+$("#mapDiv").append(googleMap);
+
 	
